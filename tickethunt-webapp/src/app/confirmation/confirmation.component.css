@@ -1,0 +1,16 @@
+.card {
+    margin: auto;
+    width: 700px;
+    margin-top: 50px;
+}
+
+#id1 {
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#id2 {
+    margin-bottom: 15px;
+    margin-left: 220px;
+}

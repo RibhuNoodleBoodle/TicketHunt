@@ -1,0 +1,44 @@
+#cardcontent {
+    max-width: 600px;
+    margin-left: 250px;
+    margin-top: 30px;
+    background-color: rgba(120, 112, 112, 0.3);
+    border-radius: 10px;
+}
+
+#field {
+    /* max-width: 500px;
+    margin-left:130px; */
+    width: 100%;
+    padding-left: 10px;
+    margin-left: 25px;
+}
+
+#save {
+    margin-left: 220px;
+
+
+}
+
+div {
+    background-image: url(../../../../assets/images/filmmaker-profession-clapperboard-video-tape-260nw-1467057335.jpg);
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-size: 1550px;
+
+}
+
+button {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+#edit-form {
+    width: 500px;
+    padding-top: 10px;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}

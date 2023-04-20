@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="image">
+    <div class="title" *ngFor="let data of bookings; let first = first">
+      <div *ngIf="first">
+        Show Name: {{data.eventName}}
+        <br>
+        <br>
+        Show Venue: {{data.venue}}
+        <br>
+        <br>
+        Show Date: {{data.date}}
+      </div>
+    </div>
+
+    <div class="indicator">
+      <span [ngClass]="{ 'seat-disabled': true }">reserved</span>
+      <span [ngClass]="{ 'seat-selected': true }">selected</span>
+      <span [ngClass]="{ 'seat-select': true }">available</span>
+    </div>
+
+    <div class="container">
+      <table>
+        <tr *ngFor="let row of rows">
+          <td *ngFor="let seat of seats">
+            <div [ngClass]="{
+                'seat-select':
+                  !checkSeatStatus(row + '' + seat) &&
+                  !isSeatSelected(row + '' + seat),
+                'seat-selected': checkSeatStatus(row + '' + seat),
+                'seat-disabled': isSeatReserved(row + '' + seat)
+              }" [ngStyle]="{'background-color': getSeatColor(row + '' + seat)}" (click)="seatSelect(row + '' + seat)"
+              class="seat">
+              {{ row + "" + seat }}
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="form">
+      <form [formGroup]="booking" (ngSubmit)="bookSeat()" class="form-container">
+        <div class="form-group">
+          <label for="seatnumber">Seat Number:</label>
+          <br>
+          <input type="text" class="form-control" id="seatnumber" formControlName="seatNumber" readonly />
+        </div>
+        <br>
+        <!-- <div class="form-group" >
+          <label for="bookingdate">Date of Booking:</label>
+          <br>
+          <input 
+            type="date"
+            class="form-control"
+            id="bookingdate"
+            formControlName="dateOfBooking"
+            min="{{ currentDate | date : 'yyyy-MM-dd' }}"
+            max="{{ eventDate }}"
+          />
+        </div> -->
+        <br>
+        <div class="form-group">
+          <label for="price">Price:</label>
+          <br>
+          <input type="text" class="form-control" formControlName="price" value="{{ totalprice() }}" readonly />
+        </div>
+        <br>
+        <button type="submit" [disabled]="booking.invalid" mat-stroked-button color="primary">
+          Book Seat
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- <div>
+    <button
+      routerLink="/booking-history"
+      style="float: right"
+      mat-flat-button color="warn"
+    >
+      Booking History
+    </button>
+  </div> -->
+</div>

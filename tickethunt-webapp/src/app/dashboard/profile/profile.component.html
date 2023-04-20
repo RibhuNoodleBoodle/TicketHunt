@@ -1,0 +1,71 @@
+<div class="container">
+    <mat-card>
+        <mat-tab-group>
+            <mat-tab label="Profile">
+                <mat-card class="card profile">
+                    <mat-card-title>{{profile.name}}</mat-card-title>
+                    <mat-card-content>
+                        <div class="profile-img">
+                            <img src="data:image/jpeg;base64,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"
+                                alt="Profile Pic">
+                        </div>
+                        <div class="profile-info" *ngIf="!editEnable">
+                            <p class="city"><i class="fa-solid fa-location-pin"></i> {{profile.city}}</p>
+                            <p class="email"><i class="fa-solid fa-envelope"></i> {{profile.email}}</p>
+                            <p class="phone"><i class="fa-solid fa-mobile-button"></i> +91-{{profile.phone}}</p>
+                            <p class="interest"><i class="fa-solid fa-star"></i>
+                                <mat-chip disabled *ngFor="let int of profile.interest">{{int}}</mat-chip>
+                            </p>
+                        </div>
+                        <div class="profile-info" *ngIf="editEnable">
+                            <form [formGroup]="user">
+                                <mat-form-field>
+                                    <input type="text" name="city" matInput placeholder="Enter your name"
+                                        formControlName="name">
+                                </mat-form-field>
+                                <mat-form-field>
+                                    <input type="text" name="city" matInput formControlName="city"
+                                        placeholder="Enter City name">
+                                </mat-form-field>
+                                <p class="email"><i class="fa-solid fa-envelope"></i> {{profile.email}}</p>
+                                <mat-form-field>
+                                    <input type="text" name="phone" matInput formControlName="phone"
+                                        placeholder="Enter phone number">
+                                </mat-form-field>
+                                <mat-form-field class="example-chip-list" appearance="fill">
+                                    <mat-label>Favorite Genres</mat-label>
+                                    <mat-chip-grid #chipGrid aria-label="Enter fruits" formControlName="interest">
+                                        <mat-chip-row *ngFor="let value of interests" (removed)="remove(value)"
+                                            [editable]="true" (edited)="edit(value, $event)">
+                                            {{value}}
+                                            <button matChipRemove [attr.aria-label]="'remove ' + value">
+                                                <mat-icon>cancel</mat-icon>
+                                            </button>
+                                        </mat-chip-row>
+                                        <input placeholder="Action, Comedy, Drama etc...." [matChipInputFor]="chipGrid"
+                                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                            [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)" />
+                                    </mat-chip-grid>
+                                </mat-form-field>
+                            </form>
+                        </div>
+                    </mat-card-content>
+                    <mat-card-footer>
+                        <!-- <button mat-raised-button color="primary">Change Password</button> -->
+                        <button mat-raised-button *ngIf="!editEnable" (click)="enableEdit()">Edit Profile</button>
+                        <button mat-raised-button *ngIf="editEnable" (click)="updateProfile(user)">Update
+                            Profile</button>
+                        <button mat-raised-button color="accent" routerLink="/booking-history">Booking History</button>
+                    </mat-card-footer>
+                </mat-card>
+            </mat-tab>
+            <!--  <mat-tab label="Bookings" routerLink="/booking-history">
+                <mat-card class="card bookings">
+                    <mat-card-title >Bookings</mat-card-title>
+                </mat-card>
+            </mat-tab> -->
+
+
+        </mat-tab-group>
+    </mat-card>
+</div>

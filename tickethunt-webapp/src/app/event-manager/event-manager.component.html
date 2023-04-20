@@ -1,0 +1,46 @@
+<div class="event-image">
+  <!--   <img src="data:image/png;base64,{{ eventDetails.image }}" alt="" />
+ -->
+  <mat-card-content class="event">
+    <div class="card">
+      <h1>Show Name: {{ eventName }}</h1>
+
+      <h2>Show Date: {{ date }}</h2>
+
+      <h2>Show Time: {{ time }}</h2>
+
+      <h2>Show Venue: {{ venue }}</h2>
+    </div>
+  </mat-card-content>
+  <table mat-table [dataSource]="dataSource" class="table-style">
+    <mat-card-title>{{ eventDetails.eventName }}</mat-card-title>
+    <ng-container matColumnDef="emailId">
+      <th mat-header-cell *matHeaderCellDef>Email Id</th>
+      <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+    </ng-container>
+    <ng-container matColumnDef="dateofbooking">
+      <th mat-header-cell *matHeaderCellDef>Date of Booking</th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngFor="let seat of element.seatList">
+          {{ seat.dateOfBooking | date }}
+        </div>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="seats">
+      <th mat-header-cell *matHeaderCellDef>Seats</th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngFor="let seat of element.seatList">
+          {{ seat.seatNumber }}
+        </div>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef>Total Price</th>
+      <td mat-cell *matCellDef="let element">
+        {{ "\u20B9" + element.seatList.length * price }}
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns" ngClass="separator"></tr>
+  </table>
+</div>

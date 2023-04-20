@@ -1,0 +1,57 @@
+.container {
+  width: 70%;
+  margin: auto;
+  height: 100vh;
+  margin-top: 50px;
+}
+
+.card {
+  padding: 30px;
+}
+
+.profile mat-card-title {
+  margin: 15px;
+}
+
+.profile mat-card-content {
+  margin: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.profile mat-card-footer {
+  margin-top: 30px;
+}
+
+.profile mat-card-footer button {
+  margin: 20px;
+}
+
+.profile-img {
+  margin-right: 30px;
+}
+
+.profile-img img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-info i {
+  margin-right: 10px;
+}
+
+.profile-info {
+  width: 600px;
+}
+
+mat-chip {
+  margin-right: 5px;
+}
+
+/* Update Component */
+.profile-info form {
+  display: flex;
+  flex-direction: column;
+}

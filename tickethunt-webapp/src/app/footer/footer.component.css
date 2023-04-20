@@ -1,0 +1,66 @@
+.footer {
+  margin-top: 50px;
+  width: 100%;
+  height: max-content;
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  bottom: 0;
+}
+
+.menu {
+  margin: 30px 250px 30px 150px;
+}
+
+.menu ul {
+  list-style-type: none;
+}
+
+.menu ul li {
+  margin: 10px 0;
+}
+
+.menu ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.subscribe input {
+  outline: none;
+  border: none;
+  padding: 5px 10px;
+  height: 30px;
+  width: 280px;
+  margin-right: 7px;
+}
+
+.subscribe button {
+  background: none;
+  border: 1px solid #fff;
+  color: #fff;
+  outline: none;
+  height: 40px;
+  width: 150px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.subscribe button:hover {
+  background-color: #fff;
+  color: #000;
+  transform: scale(0.95);
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+}
+
+.footer-credits {
+  text-align: center;
+  color: #fff;
+}
+
+.footer-credits a {
+  color: #fff;
+  text-decoration: none;
+}

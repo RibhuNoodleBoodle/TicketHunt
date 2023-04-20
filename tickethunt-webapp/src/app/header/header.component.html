@@ -1,0 +1,74 @@
+<mat-toolbar>
+  <button mat-icon-button class="example-icon" aria-label="menu" color="primary" title="Menu">
+    <!-- <mat-icon>menu</mat-icon> -->
+  </button>
+  <span class="title" routerLink="/home">
+    <img src="../../assets/images/logo.png" alt="" width="180px">
+  </span>
+  <!-- Search bar -->
+  <div class="search">
+    <div class="location">
+      <mat-icon class="ico" *ngIf="city==''" (click)="getLocation()">location_on</mat-icon>
+      <mat-icon class="ico" color="warn" *ngIf="city!=''">location_on</mat-icon>
+      <input type="text" placeholder="{{ city }}" class="location-input" (keyup)="getCity()" id="city">
+    </div>
+    <div class="input">
+      <input type="text" name="search" id="search" autocomplete="off" placeholder="Search for Events and Movies..."
+        class="search-input" (keyup)="search()" (focus)="animate()" />
+      <mat-icon class="iocn">search</mat-icon>
+    </div>
+    <div class="results" id="results">
+      <div class="main res-main" *ngFor="let movie of movies" (click)="navigateToMovieDetail(movie.eventId)">
+        <div class="result-image">
+          <img src="data:image/png;base64, {{movie.image}}" alt="{{movie.eventName}}">
+        </div>
+        <div class="main-item">
+          <div class="result-info">
+            <p class="title">{{movie.eventName}}</p>
+            <p>Release date - {{movie.date}} </p>
+          </div>
+        </div>
+      </div>
+      <div class="main res-main-load" *ngIf="movies.length <= 0">
+        <div id="load">
+          <div class="sub-rect animated-background"></div>
+          <div class="main-item">
+            <div class="animated-background"></div>
+          </div>
+        </div>
+        <div id="no-item">
+          <h3>Oops...</h3>
+          <p>No result found !!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="spacer"></span>
+  <!-- Navbar for for event manager -->
+  <nav class="">
+    <a type="button" (click)="toggle()" *ngIf="role==='event'"><span>Event</span><mat-icon
+        class="icon">expand_more</mat-icon></a>
+    <div id="event-menu" class="menu-inactive">
+      <ul>
+        <li><a routerLink="event/create">Add Event</a></li>
+        <li><a routerLink="event/view">View Events</a></li>
+      </ul>
+    </div>
+    <a routerLink="/"></a>
+  </nav>
+  <button *ngIf="!isLoggedIn" mat-icon-button class="example-icon favorite-icon" aria-label="login" color="primary"
+    title="Login" routerLink="/login">
+    <mat-icon>person</mat-icon>
+  </button>
+  <button *ngIf="isLoggedIn" mat-icon-button class="example-icon favorite-icon" aria-label="login" color="primary"
+    title="Profile" routerLink="/profile">
+    <mat-icon>person</mat-icon>
+  </button>
+  <button *ngIf="isLoggedIn" mat-icon-button class="example-icon favorite-icon" aria-label="login" color="primary"
+    title="Logout" (click)="logout()">
+    <mat-icon>logout</mat-icon>
+  </button>
+  <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>share</mat-icon>
+  </button> -->
+</mat-toolbar>

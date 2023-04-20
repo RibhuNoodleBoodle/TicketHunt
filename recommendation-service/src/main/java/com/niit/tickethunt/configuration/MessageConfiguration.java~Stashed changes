@@ -1,0 +1,19 @@
+package com.niit.tickethunt.configuration;
+
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class MessageConfiguration {
+
+    @Bean
+<<<<<<< Updated upstream:authentication-services/src/main/java/com/project/authentication/rabbitmq/MConfiguration.java
+    public Jackson2JsonMessageConverter getMessageProducer() {
+=======
+    public Jackson2JsonMessageConverter producerJackson2MessageConverter(){
+>>>>>>> Stashed changes:recommendation-service/src/main/java/com/niit/tickethunt/configuration/MessageConfiguration.java
+        return new Jackson2JsonMessageConverter();
+    }
+
+}

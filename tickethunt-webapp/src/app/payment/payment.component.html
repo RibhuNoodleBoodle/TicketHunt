@@ -1,0 +1,81 @@
+<div class="container">
+  <h1 style=" font-size: 40px; font-weight: 200;">
+    Show Name: {{ showName }}
+    <br>
+    <br>
+  </h1>
+  <h1 style=" font-size: 40px; font-weight: 200;">
+    Booking Seats: {{ selectedSeats }}
+    <br>
+    <br>
+    <br>
+    <!-- Show Date:     {{date}} -->
+  </h1>
+</div>
+
+<div class="card card-container">
+  <button mat-button color="primary">
+    <h1>Payment</h1>
+  </button>
+
+
+  <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()" class="example-form">
+    <mat-form-field class="input-field" appearance="fill">
+      <mat-label>Name</mat-label>
+      <input type="text" matInput name="name" formControlName="name"
+        [class.is-invalid]="name?.invalid && name?.touched" />
+
+      <div *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+        <div style="color: red" *ngIf="name?.errors?.['required']">
+          First Name is required
+        </div>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field class="input-field" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput name="email" formControlName="email"
+        [class.is-invalid]="email?.invalid && email?.touched" readonly [(ngModel)]="emailId" />
+
+      <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+        <div style="color: red" *ngIf="email?.errors?.['required']">
+          Email is required
+        </div>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field class="input-field" appearance="fill">
+      <mat-label>Phone Number</mat-label>
+      <input type="number" matInput name="phoneNumber" formControlName="phoneNumber"
+        [class.is-invalid]="phoneNumber?.invalid && phoneNumber?.touched" />
+
+      <div *ngIf="
+          phoneNumber?.invalid && (phoneNumber?.dirty || phoneNumber?.touched)
+        ">
+        <div style="color: red" *ngIf="phoneNumber?.errors?.['required']">
+          Phone Number is required
+        </div>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field class="input-field" appearance="fill">
+      <mat-label>Amount</mat-label>
+      <input type="number" matInput name="amount" formControlName="amount"
+        [class.is-invalid]="amount?.invalid && amount?.touched" readonly />
+
+      <div *ngIf="amount?.invalid && (amount?.dirty || amount?.touched)">
+        <div style="color: red" *ngIf="amount?.errors?.['required']">
+          Amount is required
+        </div>
+      </div>
+    </mat-form-field>
+
+    <button class="id3" type="submit" [disabled]="!paymentForm.valid" mat-raised-button color="accent" id="id1">
+      Continue to Payment
+    </button>
+  </form>
+</div>
+
+
+<ngx-spinner *ngIf="loading" bdColor="rgba(51,51,51,0.8)" size="large" color="#fff"
+  type="ball-scale-multiple"></ngx-spinner>

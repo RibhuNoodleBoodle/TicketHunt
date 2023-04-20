@@ -1,0 +1,52 @@
+.container {
+    height: 70vh;
+}
+
+mat-card {
+    width: 550px;
+    margin: auto;
+    margin-top: 2rem;
+    padding: 30px 20px;
+}
+
+mat-card-title {
+    color: #3f51b5;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+mat-form-field {
+    margin: 15px 0;
+    width: 100%;
+}
+
+button {
+    margin-top: 20px;
+    width: 150px;
+}
+
+mat-card-footer {
+    padding: 20px;
+}
+
+mat-card-footer a {
+    text-decoration: none;
+}
+
+#button {
+    background: none !important;
+    border: none;
+    padding: 0 !important;
+    /*optional*/
+    font-family: arial, sans-serif;
+    /*input has OS specific font-family*/
+    color: #069;
+    text-decoration: underline;
+    cursor: pointer;
+    text-align: left;
+}

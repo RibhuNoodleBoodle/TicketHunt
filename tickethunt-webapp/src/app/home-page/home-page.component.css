@@ -1,0 +1,24 @@
+div {
+    background-image: url(../../assets/images/Image20230119102542.jpg);
+    color: rgba(243, 33, 33, 0.9);
+    font-weight: bold;
+    /* color: red; */
+    font-size: 80px;
+    background-size: 1550px;
+
+
+
+}
+
+p {
+    padding-top: 300px;
+    padding-bottom: 300px;
+    margin-left: 100px;
+    /* font-style:italic; */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+        /* font-family: cursive; */
+}
+
+button {
+    margin-left: 200px;
+}

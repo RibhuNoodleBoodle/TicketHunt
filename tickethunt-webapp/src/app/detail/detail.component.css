@@ -1,0 +1,82 @@
+#back-img {
+  display: flex;
+}
+
+.tile {
+  width: 65%;
+}
+
+#img {
+  display: flex;
+  padding: 30px;
+  padding-bottom: 150px;
+  font-family: "Raleway", sans-serif;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+#part2 {
+  word-wrap: break-word;
+  padding: 10px 50px;
+}
+
+i {
+  margin-right: 10px;
+}
+
+#des {
+  font-size: 20px;
+  padding: 20px;
+  color: #000;
+  font-family: "Raleway", sans-serif;
+  font-weight: bolder;
+}
+
+button {
+  margin-top: 80px;
+}
+
+.event-name {
+  margin-bottom: 15px;
+}
+
+.about {
+  margin-top: 35px;
+}
+
+.event-description {
+  text-align: justify;
+}
+
+/* Recommeded Section */
+
+.recommended {
+  padding: 20px;
+}
+
+.recommended-section {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+h3 {
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  padding: 0 10px;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.event-grid-item {
+  padding: 10px;
+}
+
+.event-grid-item .banner {
+  cursor: pointer;
+  width: 190px;
+  height: 220px;
+}

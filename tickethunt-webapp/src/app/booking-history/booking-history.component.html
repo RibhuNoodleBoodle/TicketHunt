@@ -1,0 +1,108 @@
+<h1>Your Booking History</h1>
+<table mat-table [dataSource]="bookingData" class="mat-elevation-z8">
+  <ng-container matColumnDef="eventName" class="column-style">
+    <th mat-header-cell *matHeaderCellDef> Show Name </th>
+    <td mat-cell *matCellDef="let data"> {{ data.eventName }} </td>
+  </ng-container>
+  <ng-container matColumnDef="venue" class="column-style">
+    <th mat-header-cell *matHeaderCellDef> Show Venue </th>
+    <td mat-cell *matCellDef="let data"> {{ data.venue }} </td>
+  </ng-container>
+  <ng-container matColumnDef="date" class="column-style">
+    <th mat-header-cell *matHeaderCellDef> Show Date </th>
+    <td mat-cell *matCellDef="let data"> {{ data.date }} </td>
+    <br>
+    <br>
+  </ng-container>
+  <ng-container matColumnDef="price" class="column-style">
+    <th mat-header-cell *matHeaderCellDef> Price </th>
+    <td mat-cell *matCellDef="let data">
+      <ng-container *ngFor="let seat of data.seatList; let i = index">
+        {{ seat.price }}
+        <br>
+        <br>
+      </ng-container>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="dateOfBooking" class="column-style">
+    <th mat-header-cell *matHeaderCellDef> Date of Booking </th>
+    <td mat-cell *matCellDef="let data">
+      <ng-container *ngFor="let seat of data.seatList; let i = index">
+        {{ seat.dateOfBooking | date }}
+        <button class="cancel-button" (click)="delete(seat.seatNumber,data.eventId)" mat-button
+          color="warn">Cancel</button>
+
+        <br>
+        <br>
+      </ng-container>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="seatList" class="column-style">
+    <th mat-header-cell *matHeaderCellDef> Booked Seats </th>
+    <td mat-cell *matCellDef="let data">
+      <ng-container *ngFor="let seat of data.seatList; let i = index">
+        {{ seat.seatNumber }}
+        <br>
+        <br>
+      </ng-container>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+
+<div class="no-booking-history" *ngIf="bookingData.length === 0">No booking history :(</div>
+
+
+
+
+
+<!--  <h1>Your Booking History</h1>
+
+
+
+<div class="container">
+    <table class="table" >
+      <thead>
+        <tr>
+          <th>Show Name</th>
+          <th>Show Venue</th>
+          <th>Show Date</th>
+          <th>Booked Seats</th>
+          <th>Price</th>
+          <th>Date Of Booking</th>
+        </tr>
+      </thead>
+      <br>
+      <ng-container  *ngFor="let data of bookingData;">
+        <tr  *ngIf="data.seatList && data.seatList.length > 0 && data.seatList[0].seatNumber">
+          <td>{{ data.eventName }}</td>
+          <td>{{ data.venue }}</td>
+          <td>{{ data.date }}</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr *ngFor="let seat of data.seatList; let i = index">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>{{ seat.seatNumber }}</td>
+          <td>{{ seat.price }}</td>
+          <td>{{ seat.dateOfBooking | date }}</td>
+          <td>
+            <button
+              (click)="delete(seat.seatNumber,data.eventId)"
+              style="margin-left: 20px"
+              mat-button color="warn"
+            >
+              Cancel Booking
+            </button>
+          </td>
+        </tr>
+        <br>
+      </ng-container>
+    </table>
+</div>
+ -->

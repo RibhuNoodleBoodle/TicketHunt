@@ -1,2 +1,2 @@
 # TicketHunt
-A ticket application
+

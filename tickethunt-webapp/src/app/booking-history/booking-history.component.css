@@ -1,0 +1,95 @@
+.container {
+
+
+  font-size: 15px;
+  border: 2px solid black;
+  padding: 25px;
+  margin: 50px;
+}
+
+h1 {
+
+  padding-top: 75px;
+  text-align: center;
+  font-size: 35px;
+  font-weight: 400;
+}
+
+th {
+
+  font-size: 30px;
+  font-weight: 300;
+  padding-left: 70px;
+}
+
+td {
+
+  font-size: 20px;
+  font-weight: 200;
+  padding-left: 70px;
+}
+
+
+.mat-elevation-z8 {
+
+  padding: 50px;
+}
+
+.no-booking-history {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  text-align: center;
+}
+
+
+
+.mat-column-eventName,
+.mat-column-price,
+.mat-column-dateOfBooking,
+.mat-column-seatList,
+.mat-column-venue,
+.mat-column-actions,
+.mat-column-date {
+  border-bottom: 1px solid currentColor;
+  padding: 24px;
+  text-align: center;
+}
+
+.column-style {
+  border-bottom: 1px solid currentColor;
+  padding: 24px;
+  text-align: center;
+}
+
+.action-column {
+  text-align: right;
+}
+
+
+
+.cancel-button {
+  height: 25px;
+  width: 50px;
+  padding: 0;
+  margin: 0;
+  margin-left: 5rem;
+}
+
+.mat-column-actions {
+  text-align: right;
+}
+
+/*
+  td[mat-cell] {
+    width: 100px;
+    margin-bottom: 10px;
+  }
+
+
+  .button{
+
+    margin-top: -30px !important;
+  } */

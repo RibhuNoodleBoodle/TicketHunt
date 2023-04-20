@@ -1,0 +1,61 @@
+.container {
+    padding: 30px;
+}
+
+mat-card {
+    width: 700px;
+    padding: 10px;
+    margin: 10px;
+    margin-left: 100px;
+    margin-bottom: 20px;
+    background-color: rgba(188, 188, 211, 0.3);
+    color: white;
+    font-size: 20px;
+    border-radius: 15px;
+}
+
+mat-card-content {
+    width: 55%;
+}
+
+mat-card-title {
+    text-transform: capitalize;
+    margin: 20px;
+    border-bottom: 1px solid #d4d4d4;
+    font-size: 35px;
+}
+
+.event {
+    display: flex;
+    align-items: center;
+}
+
+.event mat-icon {
+    margin: 10px 15px;
+}
+
+button {
+    margin: 10px 20px;
+}
+
+.event-info {
+    display: flex;
+}
+
+.event-image img {
+    object-fit: cover;
+    object-position: center center;
+    width: 250px;
+    height: 250px;
+    -moz-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.row {
+    background-image: url(../../../../assets/images/filmmaker-profession-clapperboard-video-tape-260nw-1467057335.jpg);
+    margin: -30px;
+    padding-bottom: 250px;
+
+    background-size: 1550px;
+}

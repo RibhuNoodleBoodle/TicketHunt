@@ -1,0 +1,35 @@
+<div>
+
+    <mat-card mat-ripple class="card-content" id="cardcontent">
+        <mat-card-content>
+            <h1>Edit ! !</h1>
+            <hr>
+            <form id="edit-form">
+                <mat-form-field class="input-field" id="field">
+                    <mat-label>Event Title</mat-label>
+                    <input matInput [(ngModel)]="event.eventName" name="title" type="text">
+                </mat-form-field>
+                <br>
+
+                <mat-form-field class="input-field" id="field">
+                    <mat-label>Event Date</mat-label>
+                    <input matInput [(ngModel)]="event.date" name="date" type="text">
+                </mat-form-field> <br>
+
+                <mat-form-field class="input-field" id="field">
+                    <mat-label>Event Time</mat-label>
+                    <input matInput [(ngModel)]="event.time" name="time" type="text">
+                </mat-form-field> <br>
+
+                <mat-form-field class="input-field" id="field">
+                    <mat-label>Event Venue</mat-label>
+                    <input matInput [(ngModel)]="event.venue" name="venue" type="text">
+                </mat-form-field> <br>
+
+                <mat-card-actions id="save">
+                    <button mat-raised-button type="submit" (click)="editNote()">
+                        Save
+                    </button>
+                </mat-card-actions>
+            </form>
+        </mat-card-content>

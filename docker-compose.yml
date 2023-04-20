@@ -1,0 +1,154 @@
+version: "3.9"
+services:
+  recommendation-service:
+    image: recommendation_service
+    container_name: recommendation-service
+    build: recommendation-service
+    restart: always
+    networks:
+      - mysql-net
+    ports:
+      - "8086:8086"
+    depends_on:
+      - eureka-server
+      - neo4jService
+  authentication-service:
+    image: authentication_service
+    container_name: authentication-service
+    build: authentication
+    restart: always
+    networks:
+      - mysql-net
+    ports:
+      - "8084:8084"
+    depends_on:
+      - eureka-server
+      - mysqlService
+  booking-service:
+    image: booking_service
+    container_name: booking-service
+    build: booking-service
+    restart: always
+    networks:
+      - mysql-net
+    ports:
+      - "8081:8081"
+    depends_on:
+      - eureka-server
+      - mongoService
+  user-service:
+    image: user_service
+    container_name: user-service
+    build: user-service
+    restart: always
+    networks:
+      - mysql-net
+    ports:
+      - "8082:8082"
+    depends_on:
+      - eureka-server
+      - mongoService
+
+  api-service:
+    image: api_service
+    container_name: api-service
+    build: APIGateway
+    restart: always
+    networks:
+      - mysql-net
+    ports:
+      - "8080:8080"
+    depends_on:
+      - eureka-server
+  payment-service:
+    image: payment_service
+    container_name: payment-service
+    build: payment-service
+    restart: always
+    networks:
+      - mysql-net
+    ports:
+      - "8085:8085"
+    depends_on:
+      - eureka-server
+  neo4jService:
+    image: neo4j:latest
+    container_name: neo4jService
+    restart: always
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      NEO4J_AUTH: neo4j/rishabh123
+      NEO4J_dbms_default__database: users
+    networks:
+      - mysql-net
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    restart: always
+    networks:
+      - mysql-net
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+  mysqlService:
+    image: mysql:latest
+    container_name: mysqlService
+    restart: always
+    networks: 
+      - mysql-net
+    ports:
+      - "3307:3306"
+    expose:
+      - "3307"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+  mongoService:
+    image: mongo:latest
+    container_name: mongoService
+    restart: always
+    networks:
+      - mysql-net
+    ports:
+      - "27017:27017"
+  event-service:
+    image: event_service
+    container_name: event-service
+    build: event-service
+    restart: always
+    networks:
+      - mysql-net
+    ports:
+      - "8088:8088"
+    depends_on:
+      - eureka-server
+      - mongoService
+  eureka-server:
+    image: eureka_server
+    container_name: eureka-server
+    restart: always
+    build: Eureka
+    networks:
+      - mysql-net
+    ports:
+      - "8761:8761"
+  webapp-service:
+    image: webapp_service
+    container_name: webapp-service
+    restart: always
+    build: ProductWebApp
+    networks:
+      - mysql-net
+    ports:
+      - "4200:4200"
+
+networks:
+  mysql-net:
+    driver: bridge

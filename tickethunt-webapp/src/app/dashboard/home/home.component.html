@@ -1,0 +1,138 @@
+<div class="container">
+  <div class="popular">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="blur" style="background-image: url(../../../assets/images/bg2.jpg)">
+      </div>
+      <div class="event-pop" *ngFor="let movie of carry" id="event-pop" (click)="navigateToMovieDetail(movie.eventId)">
+        <img src="data:image/png;base64, {{movie.image}}" class="banner" alt="" />
+        <div class="info">
+          <p class="title">{{movie.eventName}}</p>
+          <p class="box">Release Date: {{movie.date}}</p>
+          <p class="box">Rating: {{movie.rating}}</p>
+        </div>
+      </div>
+      <div class="event-grid">
+        <div class="event-grid-item" *ngFor="let event of movies | slice:0:4;" id="{{event.eventId}}-card"
+          (click)="navigateToMovieDetail(event.eventId)">
+          <img src="data:image/png;base64,{{event.image}}" class="banner" alt="" />
+          <div class="info">
+            <p class="box">{{event.eventName}}</p>
+            <p class="box">Release Date: {{event.date}}</p>
+            <p class="box">Rating: {{event.rating}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="recommended">
+    <hr *ngIf="isLoggedIn" width="90%">
+    <div class="recommendation" *ngIf="isLoggedIn">
+      <h1>Recommended</h1>
+          <section class="section">
+            <div class="container-fluid">
+              <div class="slider-wrap">
+                <div class="slider-main">
+                  <div class="event" *ngFor="let event of recommended | slice:0:5;" (click)="navigateToMovieDetail(event.eventId)">
+                    <div class="card">
+                      <div class="card-body">
+                        <img src="data:image/png;base64,{{event.image}}" width="165px" height="140px" alt="" />
+                        <div id="name">
+                          {{event.eventName}}
+                        </div>
+                        <div>Release Date: {{event.date}}</div>
+                        <div>Rating: {{event.rating}}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="button-area">
+                  <button type="button" mat-icon-button class="prev preButton" appPrev title="Previous">
+                    <mat-icon class="icon">arrow_back_ios</mat-icon>
+                  </button>
+                  <button type="button" mat-icon-button class="next nexButton" appNext title="Next">
+                    <mat-icon class="icon">arrow_forward_ios</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <br>
+            <br>
+          </section>
+    </div>
+    <!-- For Showing All movies -->
+    <br>
+    <hr width="90%">
+    <h1>Trending Movies</h1>
+    <section class="section">
+      <div class="container-fluid">
+        <div class="slider-wrap">
+          <div class="slider-main">
+            <div class="event" *ngFor="let event of events1" (click)="navigateToMovieDetail(event.eventId)">
+              <div class="card">
+                <div class="card-body">
+                  <img src="data:image/png;base64,{{event.image}}" width="165px" height="140px" alt="" />
+
+                  <div id="name">
+                    {{event.eventName}}
+                  </div>
+                  <div>Release Date: {{event.date}}</div>
+                  <div>Rating: {{event.rating}}</div>
+
+
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+          <div class="button-area">
+            <button type="button" mat-icon-button class="prev preButton" appPrev title="Previous">
+              <mat-icon class="icon">arrow_back_ios</mat-icon>
+            </button>
+            <button type="button" mat-icon-button class="next nexButton" appNext title="Next">
+              <mat-icon class="icon">arrow_forward_ios</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <hr width="90%">
+    </section>
+
+    <!-- For Showing All events -->
+    <h1 class="event-title">Events Happening Near You</h1>
+    <section class="section section-event">
+      <div class="container-fluid">
+        <div class="slider-wrap">
+          <div class="slider-main">
+            <div class="event" *ngFor="let event of events2" (click)="navigateToMovieDetail(event.eventId)">
+
+              <div class="card">
+                <div class="card-body">
+                  <img src="data:image/png;base64,{{event.image}}" width="165px" height="140px" alt="" />
+                  <div id="name">
+                    {{event.eventName}}
+                  </div>
+
+                  <div>Show Date: {{event.date}}</div>
+                  <!-- <div>Rating:{{event.rating}}</div> -->
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+          <div class="button-area">
+            <button type="button" mat-icon-button class="prev preButton" appPrev>
+              <mat-icon>arrow_back_ios</mat-icon>
+            </button>
+            <button type="button" mat-icon-button class="next nexButton" appNext>
+              <mat-icon>arrow_forward_ios</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

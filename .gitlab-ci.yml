@@ -1,0 +1,33 @@
+cache:
+  key: "maven3"
+  paths:
+    - .m2/repository
+
+stages:
+  - build
+  - lint
+  - test
+
+maven-build:
+  image: maven:3-jdk-11
+  stage: build
+  script: mvn clean compile --also-make
+  artifacts:
+    paths:
+      - /target/*.jar
+
+maven-lint:
+  image: maven:3-jdk-11
+  stage: lint
+  when: always
+  script:
+    - mvn pmd:check -X
+  artifacts:
+    paths:
+      - /target/*.jar
+
+java_test:
+  image: maven:3-jdk-11
+  stage: test
+  script:
+    - mvn clean test --also-make

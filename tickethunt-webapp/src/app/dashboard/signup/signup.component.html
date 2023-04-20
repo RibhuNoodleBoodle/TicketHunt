@@ -1,0 +1,142 @@
+<div class="container">
+    <mat-card class="signup">
+        <mat-card-title>Sign Up</mat-card-title>
+        <mat-card-content>
+            <mat-stepper linear #stepper>
+                <mat-step [stepControl]="customer" [editable]="isEditable">
+                    <form [formGroup]="customer">
+                        <ng-template matStepLabel>Personal Details</ng-template>
+                        <mat-form-field>
+                            <mat-label>Name</mat-label>
+                            <input type="text" required matInput formControlName="name"
+                                onkeydown="return /[a-z]/i.test(event.key)">
+                            <mat-error class="error" *ngIf="customer.controls['name'].hasError('required')">Name is
+                                required</mat-error>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>City</mat-label>
+                            <input type="text" required matInput formControlName="city" required
+                                onkeydown="return /[a-z]/i.test(event.key)">
+                            <mat-error class="error" *ngIf="customer.controls['city'].hasError('required')">City is
+                                required</mat-error>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Phone</mat-label>
+                            <input type="number" required matInput formControlName="phone" required>
+                            <mat-error class="error" *ngIf="customer.controls['phone'].hasError('required')">Phone is
+                                required</mat-error>
+                            <mat-error class="error" *ngIf="customer.controls['phone'].hasError('pattern')">Valid phone
+                                number contains 10 digit starting with 7/8/9</mat-error>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Email</mat-label>
+                            <input type="email" required matInput formControlName="email">
+                            <mat-error class="error" *ngIf="customer.controls['email'].hasError('required')">Email is
+                                required</mat-error>
+                            <mat-error class="error" *ngIf="customer.controls['email'].hasError('pattern')"> Enter a
+                                valid email address</mat-error>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Password</mat-label>
+                            <input type="password" required matInput formControlName="password">
+                            <mat-error class="error" *ngIf="customer.controls['password'].hasError('required')">Password
+                                is required</mat-error>
+                            <mat-error class="error" *ngIf="customer.controls['password'].hasError('pattern')">Password
+                                should have min 8 letter password, with at least a symbol,
+                                upper and lower case letters and a number</mat-error>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Confirm Password</mat-label>
+                            <input type="password" required matInput formControlName="cnfPassword">
+                            <mat-error class="error"
+                                *ngIf="customer.controls['cnfPassword'].hasError('required')">Confirm Password is
+                                required</mat-error>
+                            <mat-error class="error" *ngIf="customer.get('cnfPassword')?.hasError('noMatch')">Password &
+                                Confirm Password should match</mat-error>
+                        </mat-form-field>
+                        <div>
+                            <button mat-button matStepperNext [disabled]="customer.invalid"
+                                mat-raised-button>Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="interestData" [editable]="isEditable">
+                    <form [formGroup]="interestData">
+                        <ng-template matStepLabel>Interests </ng-template>
+                        <mat-form-field class="example-chip-list" appearance="fill">
+                            <mat-label>Favorite Genres</mat-label>
+                            <mat-chip-grid #chipGrid aria-label="Enter fruits" formControlName="interest">
+                                <mat-chip-row *ngFor="let value of interests" (removed)="remove(value)"
+                                    [editable]="true" (edited)="edit(value, $event)">
+                                    {{value}}
+                                    <button matChipRemove [attr.aria-label]="'remove ' + value">
+                                        <mat-icon>cancel</mat-icon>
+                                    </button>
+                                </mat-chip-row>
+                                <input placeholder="Action, Comedy, Drama etc...." [matChipInputFor]="chipGrid"
+                                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                    [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)" />
+                            </mat-chip-grid>
+                            <mat-error class="error" *ngIf="interestData.controls['interest'].hasError('required')">At
+                                least one genre is required </mat-error>
+                        </mat-form-field>
+
+                        <!-- <section class="interest-section" [formGroup]="interest">
+                    <h4>Select your interest:</h4>
+                    <p><mat-checkbox formControlName="action">Action</mat-checkbox></p>
+                    <p><mat-checkbox formControlName="drama">Drama</mat-checkbox></p>
+                    <p><mat-checkbox formControlName="horror">Horror</mat-checkbox></p>
+                    <p><mat-checkbox formControlName="science">Si-Fi</mat-checkbox></p>
+                </section> -->
+                        <section class="interest-section">
+                            <span>Account Type:</span>
+                            <mat-radio-group aria-label="Select an option" formControlName="role">
+                                <mat-radio-button value="user">Personal</mat-radio-button>
+                                <mat-radio-button value="event">Event Manager</mat-radio-button>
+                            </mat-radio-group>
+                        </section>
+                        <div>
+                            <button mat-button matStepperPrevious mat-raised-button>Back</button>
+                            <button mat-button matStepperNext mat-raised-button>Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step>
+                    <ng-template matStepLabel>Done</ng-template>
+                    <!-- <p>You are now done.</p> -->
+                    <mat-card class="terms">
+                        <mat-card-title>Terms & Conditions</mat-card-title>
+                        <mat-card-content>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam laborum voluptatibus
+                                ratione officiis possimus dolores ipsum ab obcaecati porro, natus, aut enim
+                                necessitatibus soluta atque quibusdam mollitia nisi veritatis repudiandae.</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam laborum voluptatibus
+                                ratione officiis possimus dolores ipsum ab obcaecati porro, natus, aut enim
+                                necessitatibus soluta atque quibusdam mollitia nisi veritatis repudiandae.</p>
+                        </mat-card-content>
+                        <!-- <mat-card-footer>By signing up you agree above terms & condtions</mat-card-footer> -->
+                        <mat-checkbox>By signing up you agree to above terms & conditions</mat-checkbox>
+                    </mat-card>
+                    <div class="save-user">
+                        <button mat-button color="primary" mat-raised-button
+                            (click)="saveUser(customer, interestData)">Submit</button>
+                        <button mat-button (click)="stepper.reset()" mat-raised-button>Reset</button>
+                    </div>
+                </mat-step>
+            </mat-stepper>
+        </mat-card-content>
+    </mat-card>
+
+
+    <!-- <mat-card>
+    <mat-card-content>
+            <form [formGroup]="customer" (submit)="saveCustomer(customer)">
+             
+                <div>
+                    <button type="submit" mat-raised-button color="primary" [disabled]="customer.invalid">Sign Up</button>
+                    <button type="reset" mat-raised-button color="primary">Reset</button>
+                </div>
+            </form>
+    </mat-card-content>
+</mat-card> -->
+</div>
