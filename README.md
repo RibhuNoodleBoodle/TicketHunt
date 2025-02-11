@@ -28,6 +28,6 @@ We welcome contributions to enhance the functionality and usability of Ticket Hu
 Ticket Hunt is released under the [MIT License](https://opensource.org/licenses/MIT) . Feel free to use, modify, and distribute the code as per the terms of the license.
 ## Contact
 
-For any inquiries or feedback regarding Ticket Hunt, please contact us at ranjansemail95@gmail.com
+For any inquiries or feedback regarding Ticket Hunt, please contact me at ranjansenguptasde@outlook.com
 
 We hope you enjoy using Ticket Hunt and that it helps you discover and book your favorite events and movies effortlessly!
